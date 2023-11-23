@@ -221,5 +221,93 @@
                 "strikes": 13
             }
         ]
+    },
+    {
+        "date": "2024-01-02",
+        "players": [
+            {
+                "name": "Mates",
+                "rounds": [
+                    79,
+                    103,
+                    151,
+                    67,
+                    83,
+                    79,
+                    81,
+                    83
+                ],
+                "spares": 12,
+                "strikes": 8
+            },
+            {
+                "name": "Frigi",
+                "rounds": [
+                    104,
+                    134,
+                    164,
+                    134,
+                    138,
+                    99,
+                    113,
+                    146
+                ],
+                "spares": 30,
+                "strikes": 12
+            }
+        ]
+    },
+    {
+        "date": "2024-01-24",
+        "players": [
+            {
+                "name": "Mates",
+                "rounds": [
+                    120,
+                    122,
+                    86,
+                    105,
+                    62
+                ],
+                "spares": 11,
+                "strikes": 5
+            },
+            {
+                "name": "Frigi",
+                "rounds": [
+                    113,
+                    170,
+                    115,
+                    145,
+                    69
+                ],
+                "spares": 8,
+                "strikes": 12
+            },
+            {
+                "name": "Kuba",
+                "rounds": [
+                    153,
+                    159,
+                    85,
+                    93,
+                    78
+                ],
+                "spares": 17,
+                "strikes": 6
+            },
+            {
+                "name": "Pavel",
+                "rounds": [
+                    99,
+                    122,
+                    100,
+                    159,
+                    106
+                ],
+                "spares": 12,
+                "strikes": 8
+            }
+        ]
     }
 ]

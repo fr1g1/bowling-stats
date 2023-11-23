@@ -6,8 +6,8 @@ import {
     TableContainer,
     TableHead,
     TableRow,
-    Typography,
 } from '@mui/material'
+import React from 'react'
 
 import { Game } from '../models'
 import { getColor } from '../utils'
@@ -17,7 +17,7 @@ type TableProps = {
 }
 
 export const Table: React.FC<TableProps> = ({ data }) => {
-    const { date, players } = data
+    const { players } = data
     const align = 'center'
     const headerCellStyle: React.CSSProperties = {
         fontWeight: 'bold',
@@ -26,16 +26,9 @@ export const Table: React.FC<TableProps> = ({ data }) => {
     const numOfRounds = players.length > 0 ? players[0].rounds.length : 0
 
     return (
-        <TableContainer variant='outlined' component={Paper} style={{ marginBottom: 10 }}>
+        <TableContainer variant='outlined' component={Paper}>
             <MuiTable>
                 <TableHead>
-                    <TableRow>
-                        <TableCell align={align} style={headerCellStyle} colSpan={numOfRounds + 4}>
-                            <Typography variant='h6' fontWeight='bold'>
-                                {`${date.getDate()}. ${date.getMonth() + 1}. ${date.getFullYear()}`}
-                            </Typography>
-                        </TableCell>
-                    </TableRow>
                     <TableRow>
                         <TableCell align={align} style={headerCellStyle}>Player</TableCell>
                         {[...Array(numOfRounds).keys()].map((_, i) => (
