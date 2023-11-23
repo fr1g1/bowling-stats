@@ -1,45 +1,21 @@
-import { BarChart, LineChart } from '@mui/x-charts'
-import { Optional } from 'utility-types'
+import React from 'react'
+
+import { Card } from './Card'
+import { Graphs } from './Graphs'
+import { Table } from './Table'
 
 import { Game } from '../models'
-import { getColor } from '../utils'
 
 type StatsProps = {
-    data: Optional<Game, 'date'>
+    game: Game
 }
 
-export const Stats: React.FC<StatsProps> = ({ data }) => {
+export const Stats: React.FC<StatsProps> = ({ game }) => {
+    const { date } = game
     return (
-        <div style={{ alignItems: 'flex-end', display: 'flex' }}>
-            <LineChart
-                height={500}
-                series={data.players.map(player => ({
-                    color: getColor(player.name),
-                    data: player.rounds,
-                    label: player.name,
-                }))}
-                width={800}
-            />
-            <BarChart
-                height={500}
-                series={data.players.map(player => ({
-                    color: getColor(player.name),
-                    data: [player.rounds.reduce((sum, round) => sum + round, 0)],
-                    label: player.name,
-                }))}
-                width={400}
-                xAxis={[{ scaleType: 'band', data: ['Total'] }]}
-            />
-            <BarChart
-                height={500}
-                series={data.players.map(player => ({
-                    color: getColor(player.name),
-                    data: [player.strikes, player.spares],
-                    label: player.name,
-                }))}
-                width={400}
-                xAxis={[{ scaleType: 'band', data: ['Strikes', 'Spares'] }]}
-            />
-        </div>
+        <Card title={`${date.getDate()}. ${date.getMonth() + 1}. ${date.getFullYear()}`}>
+            <Table data={game} />
+            <Graphs data={game} />
+        </Card>
     )
 }

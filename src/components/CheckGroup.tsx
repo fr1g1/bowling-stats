@@ -1,4 +1,4 @@
-import { Checkbox, FormControlLabel, FormGroup } from '@mui/material'
+import { Button, ButtonGroup, useTheme } from '@mui/material'
 import React from 'react'
 
 import { toggleName } from '../utils'
@@ -10,23 +10,21 @@ type CheckGroupProps = {
 }
 
 export const CheckGroup: React.FC<CheckGroupProps> = ({ checkedPlayers, onToggle, players }) => {
+    const theme = useTheme()
+
     return (
-        <FormGroup>
+        <ButtonGroup style={{ alignItems: 'center', justifyContent: 'center' }} variant='contained'>
             {players.map((name, i) => (
-                <FormControlLabel
-                    control={
-                        <Checkbox
-                            checked={checkedPlayers.includes(name)}
-                            onChange={(_, checked) => {
-                                onToggle(toggleName(checkedPlayers, name, checked))
-                            }}
-                            size='medium'
-                        />
-                    }
+                <Button
+                    color={checkedPlayers.includes(name) ? 'success' : 'error'}
                     key={i}
-                    label={name}
-                />
+                    onClick={() => onToggle(toggleName(checkedPlayers, name, !checkedPlayers.includes(name)))}
+                    style={{ borderColor: theme.palette.common.white }}
+                    variant={checkedPlayers.includes(name) ? 'contained' : 'outlined'}
+                >
+                    {name}
+                </Button>
             ))}
-        </FormGroup>
+        </ButtonGroup>
     )
 }

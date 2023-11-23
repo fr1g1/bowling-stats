@@ -9,3 +9,21 @@ export type Player = {
     spares: number
     strikes: number
 }
+
+export type ChartsData = {
+    name: string
+    points: number[]
+    rounds: number[]
+    spares: number
+    strikes: number
+    total: number
+}
+
+export type TableData = {
+    name: string
+    rounds: {
+        better: number
+        equal: number
+        worse: number
+    }
+}
